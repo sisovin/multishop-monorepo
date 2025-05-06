@@ -1,0 +1,10 @@
+<ul class="category-list">
+  <li *ngFor="let category of categories" (click)="filterProductsByCategory(category.id)">
+    {{ category.name }}
+    <ul *ngIf="category.children && category.children.length > 0">
+      <li *ngFor="let child of category.children" (click)="filterProductsByCategory(child.id)">
+        {{ child.name }}
+      </li>
+    </ul>
+  </li>
+</ul>

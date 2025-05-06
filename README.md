@@ -1,2 +1,1 @@
-# multishop-monorepo
-A repository for a multishop monorepo with Angular and NestJS applications
+This repository is empty. Any task executed on it should be considered a new capability and needs to be created.

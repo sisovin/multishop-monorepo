@@ -1,0 +1,18 @@
+<div class="cart-dropdown">
+  <div class="cart-items">
+    <div *ngFor="let item of cartItems" class="cart-item">
+      <img [src]="item.imageUrl" alt="{{ item.name }}">
+      <div class="item-details">
+        <span class="name">{{ item.name }}</span>
+        <span class="price">{{ item.quantity }} x ${{ item.price }}</span>
+      </div>
+    </div>
+  </div>
+  <div class="cart-total">
+    <span>Total: ${{ totalPrice }}</span>
+  </div>
+  <div class="cart-actions">
+    <button (click)="viewCart()">View Cart</button>
+    <button (click)="checkout()">Checkout</button>
+  </div>
+</div>

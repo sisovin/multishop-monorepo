@@ -1,0 +1,20 @@
+.rating {
+  display: flex;
+  align-items: center;
+}
+
+.rating span {
+  font-size: 2rem;
+  color: #ccc;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.rating span.filled {
+  color: #f5c518;
+}
+
+.rating span:hover,
+.rating span:hover ~ span {
+  color: #f5c518;
+}

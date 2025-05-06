@@ -1,0 +1,60 @@
+<div class="checkout-container">
+  <form [formGroup]="checkoutForm" (ngSubmit)="submitOrder()">
+    <div *ngIf="currentStep === 1" class="checkout-step">
+      <h2>Shipping Information</h2>
+      <div formGroupName="shippingAddress">
+        <label for="fullName">Full Name</label>
+        <input id="fullName" formControlName="fullName" type="text" required>
+        
+        <label for="address">Address</label>
+        <input id="address" formControlName="address" type="text" required>
+        
+        <label for="city">City</label>
+        <input id="city" formControlName="city" type="text" required>
+        
+        <label for="state">State</label>
+        <input id="state" formControlName="state" type="text" required>
+        
+        <label for="zip">Zip Code</label>
+        <input id="zip" formControlName="zip" type="text" required>
+      </div>
+      <button type="button" (click)="nextStep()">Next</button>
+    </div>
+
+    <div *ngIf="currentStep === 2" class="checkout-step">
+      <h2>Payment Information</h2>
+      <div formGroupName="paymentDetails">
+        <label for="cardName">Name on Card</label>
+        <input id="cardName" formControlName="cardName" type="text" required>
+        
+        <label for="cardNumber">Card Number</label>
+        <input id="cardNumber" formControlName="cardNumber" type="text" required>
+        
+        <label for="expirationDate">Expiration Date</label>
+        <input id="expirationDate" formControlName="expirationDate" type="text" required>
+        
+        <label for="cvv">CVV</label>
+        <input id="cvv" formControlName="cvv" type="text" required>
+      </div>
+      <button type="button" (click)="previousStep()">Previous</button>
+      <button type="button" (click)="nextStep()">Next</button>
+    </div>
+
+    <div *ngIf="currentStep === 3" class="checkout-step">
+      <h2>Review and Submit</h2>
+      <div class="review-section">
+        <h3>Shipping Information</h3>
+        <p>{{ checkoutForm.get('shippingAddress.fullName').value }}</p>
+        <p>{{ checkoutForm.get('shippingAddress.address').value }}</p>
+        <p>{{ checkoutForm.get('shippingAddress.city').value }}, {{ checkoutForm.get('shippingAddress.state').value }} {{ checkoutForm.get('shippingAddress.zip').value }}</p>
+        
+        <h3>Payment Information</h3>
+        <p>{{ checkoutForm.get('paymentDetails.cardName').value }}</p>
+        <p>**** **** **** {{ checkoutForm.get('paymentDetails.cardNumber').value.slice(-4) }}</p>
+        <p>{{ checkoutForm.get('paymentDetails.expirationDate').value }}</p>
+      </div>
+      <button type="button" (click)="previousStep()">Previous</button>
+      <button type="submit">Submit Order</button>
+    </div>
+  </form>
+</div>

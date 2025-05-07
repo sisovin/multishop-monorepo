@@ -1,8 +1,8 @@
 <ul class="category-list">
-  <li *ngFor="let category of categories" (click)="filterProductsByCategory(category.id)">
+  <li *ngFor="let category of categories" (click)="filterProductsByCategory(category.id); categorySelected.emit(category.id)">
     {{ category.name }}
     <ul *ngIf="category.children && category.children.length > 0">
-      <li *ngFor="let child of category.children" (click)="filterProductsByCategory(child.id)">
+      <li *ngFor="let child of category.children" (click)="filterProductsByCategory(child.id); categorySelected.emit(child.id)">
         {{ child.name }}
       </li>
     </ul>

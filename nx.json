@@ -1,0 +1,30 @@
+{
+  "npmScope": "multishop",
+  "affected": {
+    "defaultBase": "main"
+  },
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    "tsconfig.base.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "frontend": {
+      "tags": []
+    },
+    "backend": {
+      "tags": []
+    },
+    "shared-types": {
+      "tags": []
+    },
+    "shared-utils": {
+      "tags": []
+    }
+  }
+}

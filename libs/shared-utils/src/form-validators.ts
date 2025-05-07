@@ -55,4 +55,27 @@ export class FormValidators {
         : { match: { controlName, matchingControlName } };
     };
   }
+
+  static minValue(minValue: number) {
+    return (control: AbstractControl): ValidationErrors | null => {
+      return control.value && control.value >= minValue
+        ? null
+        : { minValue: { requiredValue: minValue, actualValue: control.value } };
+    };
+  }
+
+  static maxValue(maxValue: number) {
+    return (control: AbstractControl): ValidationErrors | null => {
+      return control.value && control.value <= maxValue
+        ? null
+        : { maxValue: { requiredValue: maxValue, actualValue: control.value } };
+    };
+  }
+
+  static date(control: AbstractControl): ValidationErrors | null {
+    const datePattern = /^\d{4}-\d{2}-\d{2}$/;
+    return datePattern.test(control.value)
+      ? null
+      : { date: { requiredPattern: datePattern.toString(), actualValue: control.value } };
+  }
 }

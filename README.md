@@ -107,3 +107,34 @@ To use the shared utils in your code, import them as follows:
 import { apiClient } from '@multishop/shared-utils';
 import { formValidators } from '@multishop/shared-utils';
 ```
+
+## Testing
+
+### Backend Tests
+
+- `app.e2e-spec.ts`: Basic endpoints
+- `auth.e2e-spec.ts`: Auth tests
+- `products.e2e-spec.ts`: Product API tests
+
+### Shared Libraries
+
+#### Shared Types
+
+- `product.interface.ts`: Frontend/backend contract
+- `user.interface.ts`: User type definition
+- `index.ts`: Barrel exports
+
+#### Shared Utilities
+
+- `api-client.ts`: Reusable API client
+- `form-validators.ts`: Common validators
+- `index.ts`: Utility exports
+
+### Project Setup
+
+- `angular.json`: Angular config
+- `nest-cli.json`: NestJS config
+- `nx.json`: Monorepo config
+- `tsconfig.*.json`: TypeScript configs
+- `package.json`: Root dependencies
+- `README.md`: Project documentation

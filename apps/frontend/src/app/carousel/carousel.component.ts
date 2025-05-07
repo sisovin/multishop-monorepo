@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { BannerService } from '@multishop/shared-utils';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-carousel',
@@ -7,20 +6,11 @@ import { BannerService } from '@multishop/shared-utils';
   styleUrls: ['./carousel.component.css']
 })
 export class CarouselComponent implements OnInit {
-  banners: any[] = [];
+  @Input() banners: any[] = [];
   currentBannerIndex: number = 0;
 
-  constructor(private bannerService: BannerService) {}
-
   ngOnInit() {
-    this.fetchBanners();
     this.startBannerRotation();
-  }
-
-  fetchBanners() {
-    this.bannerService.getBanners().subscribe((data: any) => {
-      this.banners = data;
-    });
   }
 
   startBannerRotation() {

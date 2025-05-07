@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { CategoryService } from '@multishop/shared-utils';
 
 @Component({
@@ -8,6 +8,7 @@ import { CategoryService } from '@multishop/shared-utils';
 })
 export class CategoryNavComponent implements OnInit {
   categories: any[] = [];
+  @Output() categorySelected = new EventEmitter<string>();
 
   constructor(private categoryService: CategoryService) {}
 
@@ -22,6 +23,7 @@ export class CategoryNavComponent implements OnInit {
   }
 
   filterProductsByCategory(categoryId: string) {
+    this.categorySelected.emit(categoryId);
     // Implement logic to filter products by category
   }
 }
